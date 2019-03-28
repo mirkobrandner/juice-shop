@@ -62,6 +62,7 @@ for filter in json_data['filters']:
 print ('All vulnerabilities: ' + str(vulns_all))
 print ('Open vulnerabilities: ' + str(vulns_open))
 
+
 # TODO Set the threshold for the number of vulnerabilities (of given severities)
 if (vulns_open > 0):
     sys.exit(1)
