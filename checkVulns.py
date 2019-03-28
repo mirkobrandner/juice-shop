@@ -6,17 +6,19 @@ import json
 import requests
 import urllib
 import sys
+import os
+
   
 # TODO: Set the severities you are interested in
 SEVERITIES = 'CRITICAL,HIGH'
  
-# TODO: Set your application name (as per your package.json)
-url = '%env.url%api/ng/%env.orgid%/applications/name?'+urllib.urlencode({ 'filterText' : 'APPLICATION NAME', 'filterServers' : '%teamcity.agent.hostname%' })
+# TODO: Set your application name (as per your package.json) - todo: remove hardcoded stuff
+url = '%env.url%api/ng/%env.orgid%/applications/name?'+urllib.urlencode({ 'filterText' : 'MirkosJuiceShop', 'filterServers' : 'stuttgart.local' })
   
 headers = {
     'Accept': 'application/json',
-    'API-Key': '%env.apikey%',
-    'Authorization': base64.b64encode('%env.username%:%env.servicekey%')
+    'API-Key': '3wsMBpOKKQtiqbaLpbP4Z1K4g4qh6VXV',
+    'Authorization': base64.b64encode('mirko.brandner@contrastsecurity.com:G4I3FCMZW7YJOU0G')
 }
   
 print ('HTTP GET ' + url)
@@ -35,7 +37,7 @@ json_data = json.loads(response.content)
 APP_ID = json_data['applications'][0]['app_id']
   
 # Contrast Security API request to get vulnerabilities
-url = '%env.url%api/ng/%env.orgid%/traces/'+APP_ID+'/quick?'+urllib.urlencode({ 'severities' : SEVERITIES, 'filterText' : '%env.BUILD_NUMBER%' })
+url = '%env.url%api/ng/%env.orgid%/traces/'+APP_ID+'/quick?'+urllib.urlencode({ 'severities' : SEVERITIES, 'filterText' : os.environ['CIRCLE_BUILD_NUM'] })
   
 print ('HTTP GET ' + url)
 response = requests.get(url, headers = headers)
