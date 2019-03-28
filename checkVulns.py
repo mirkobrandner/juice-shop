@@ -13,7 +13,7 @@ import os
 SEVERITIES = 'CRITICAL,HIGH'
  
 # TODO: Set your application name (as per your package.json) - todo: remove hardcoded stuff
-url = '%env.url%api/ng/%env.orgid%/applications/name?'+urllib.urlencode({ 'filterText' : 'MirkosJuiceShop', 'filterServers' : 'stuttgart.local' })
+url = 'https://eval.contrastsecurity.com/Contrast/api/ng/c992a0ef-e965-4f92-a410-e09256a78758/applications/name?'+urllib.urlencode({ 'filterText' : 'MirkosJuiceShop', 'filterServers' : 'stuttgart.local' })
   
 headers = {
     'Accept': 'application/json',
@@ -37,7 +37,7 @@ json_data = json.loads(response.content)
 APP_ID = json_data['applications'][0]['app_id']
   
 # Contrast Security API request to get vulnerabilities
-url = '%env.url%api/ng/%env.orgid%/traces/'+APP_ID+'/quick?'+urllib.urlencode({ 'severities' : SEVERITIES, 'filterText' : os.environ['CIRCLE_BUILD_NUM'] })
+url = 'https://eval.contrastsecurity.com/Contrast/api/ng/c992a0ef-e965-4f92-a410-e09256a78758/traces/'+APP_ID+'/quick?'+urllib.urlencode({ 'severities' : SEVERITIES, 'filterText' : os.environ['CIRCLE_BUILD_NUM'] })
 print ('os.environ->CIRCLE_BUILD_NUM:'+ os.environ['CIRCLE_BUILD_NUM'])
 sys.exit(1)
   
