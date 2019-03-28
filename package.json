@@ -145,7 +145,7 @@
   "license": "MIT",
   "scripts": {
     "contrast": "node-contrast app",
-    "contrast-e2e": "node-contrast test/e2eTests.js"
+    "contrast-e2e": "node-contrast test/e2eTests.js",
     "postinstall": "cd frontend && npm install && cd .. && npm run build",
     "serve": "concurrently --kill-others \"node app\" \"cd frontend && ng serve\"",
     "build": "cd frontend && node --max-old-space-size=8192 ./node_modules/@angular/cli/bin/ng build --aot --prod --output-hashing=none --vendor-chunk=true --source-map=false",
@@ -154,7 +154,7 @@
     "test": "cd frontend && ng test --watch=false --source-map=false && cd .. && nyc --report-dir=./build/reports/coverage/server-tests mocha test/server",
     "frisby": "nyc --report-dir=./build/reports/coverage/api-tests jest --silent --runInBand",
     "preprotractor": "webdriver-manager update --gecko false",
-    "protractor": "npm run e2e",
+    "protractor": "npm run contrast-e2e",
     "e2e": "node test/e2eTests.js",
     "vagrant": "cd vagrant && vagrant up",
     "package": "grunt package"
