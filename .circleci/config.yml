@@ -8,6 +8,8 @@ jobs:
     docker:
       # specify the version you desire here
       - image: circleci/node:10.15.3-browsers
+     #   environment: Note: You cannot use a built-in environment variable to define another environment variable. Instead, you must use a run step to export the new environment variables using BASH_ENV
+      #    APPLICATION__VERSION: CIRCLE_BUILD_NUM 
 
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
@@ -19,6 +21,11 @@ jobs:
     steps:
       - checkout
       - run: which python
+      - run:
+          name: Update PATH and Define Environment Variable at Runtime
+          command: |
+            echo 'export APPLICATION__VERSION=$CIRCLE_BUILD_NUM' >> $BASH_ENV
+            source $BASH_ENV
 
       # Download and cache dependencies
       - restore_cache:
