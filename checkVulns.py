@@ -38,6 +38,8 @@ APP_ID = json_data['applications'][0]['app_id']
   
 # Contrast Security API request to get vulnerabilities
 url = '%env.url%api/ng/%env.orgid%/traces/'+APP_ID+'/quick?'+urllib.urlencode({ 'severities' : SEVERITIES, 'filterText' : os.environ['CIRCLE_BUILD_NUM'] })
+print ('os.environ['CIRCLE_BUILD_NUM':'+ os.environ['CIRCLE_BUILD_NUM'])
+sys.exit(1)
   
 print ('HTTP GET ' + url)
 response = requests.get(url, headers = headers)
