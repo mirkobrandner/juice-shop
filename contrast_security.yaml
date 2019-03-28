@@ -1,0 +1,21 @@
+api:
+  url: https://eval.contrastsecurity.com/Contrast/
+  user_name: mirko.brandner@contrastsecurity.com
+  api_key: 3wsMBpOKKQtiqbaLpbP4Z1K4g4qh6VXV
+  service_key: G4I3FCMZW7YJOU0G
+
+application:
+   name: MirkosJuiceShop
+   version: 1.0
+   tags: MB
+   metadata: key1=value1,office=stuttgart
+
+server:
+  name: stuttgart.local  
+  build: 10.0
+  version: 1.1.0
+  tags: bla1
+  environment: DEVELOPMENT
+
+
+
