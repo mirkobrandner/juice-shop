@@ -44,8 +44,9 @@ jobs:
 
       # run tests!
       - run: node node_modules/protractor/bin/webdriver-manager update
-      - run: npm run contrast-e2e
+      - run: npm run contrast-e2e -- --application.version=$CIRCLE_BUILD_NUM
       - run: sudo apt-get install python-pip
       - run: sudo pip install requests
+      - run: sleep 30
       - run: python ~/repo/checkVulns.py
-      - run: python checkVulns.py
+
