@@ -18,10 +18,7 @@ jobs:
 
     steps:
       - checkout
-      - run
-          name: runPythonScript
-          command: |
-            which python
+      - run: which python
 
       # Download and cache dependencies
       - restore_cache:
