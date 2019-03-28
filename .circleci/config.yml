@@ -20,10 +20,6 @@ jobs:
 
     steps:
       - checkout
-      - run: sudo apt-get install python-pip
-      - run: sudo pip install requests 
-      - run: python ~/repo/checkVulns.py
-      - run: which python
       - run:
           name: Update PATH and Define Environment Variable at Runtime
           command: |
@@ -49,4 +45,7 @@ jobs:
       # run tests!
       - run: node node_modules/protractor/bin/webdriver-manager update
       - run: npm run contrast-e2e
+      - run: sudo apt-get install python-pip
+      - run: sudo pip install requests
+      - run: python ~/repo/checkVulns.py
       - run: python checkVulns.py
