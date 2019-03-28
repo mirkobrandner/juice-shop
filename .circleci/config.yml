@@ -35,4 +35,4 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
 
       # run tests!
-      - run: node node_modules/protractor/bin/webdriver-manager
+      - run: node node_modules/protractor/bin/webdriver-manager update
