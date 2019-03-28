@@ -19,8 +19,6 @@ jobs:
     steps:
       - checkout
       - run: which python
-      - run: npm install 
-      - run: npm install node-contrast-2.0.1.tgz --no-save
 
       # Download and cache dependencies
       - restore_cache:
@@ -30,6 +28,8 @@ jobs:
             - v1-dependencies-
 
       - run: npm install
+      - run: npm install node-contrast-2.0.1.tgz --no-save
+
 
       - save_cache:
           paths:
