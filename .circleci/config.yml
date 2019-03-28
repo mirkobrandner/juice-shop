@@ -21,7 +21,7 @@ jobs:
     steps:
       - checkout
       - run: sudo apt-get install python-pip
-      - run: sudo pip install requests urllib
+      - run: sudo pip install requests 
       - run: python ~/repo/checkVulns.py
       - run: which python
       - run:
