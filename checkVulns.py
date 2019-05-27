@@ -37,7 +37,7 @@ json_data = json.loads(response.content)
 APP_ID = json_data['applications'][0]['app_id']
   
 # Contrast Security API request to get vulnerabilities
-url = 'https://eval.contrastsecurity.com/Contrast/api/ng/c992a0ef-e965-4f92-a410-e09256a78758/traces/'+APP_ID+'/quick?'+urllib.urlencode({ 'severities' : SEVERITIES, 'filterText' : os.environ['CIRCLE_BUILD_NUM'] })
+url = 'https://eval.contrastsecurity.com/Contrast/api/ng/c992a0ef-e965-4f92-a410-e09256a78758/traces/'+APP_ID+'/quick?'+urllib.urlencode({ 'severities' : SEVERITIES, 'filterText' : os.environ['GO_PIPELINE_COUNTER'] })
   
 print ('HTTP GET ' + url)
 response = requests.get(url, headers = headers)
